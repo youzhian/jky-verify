@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /verify
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/verify?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: wdc
+    password: w0fng_client
+  http:
+    log-request-details: true
+  thymeleaf:
+    cache: false
