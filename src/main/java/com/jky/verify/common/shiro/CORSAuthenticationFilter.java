@@ -45,7 +45,7 @@ public class CORSAuthenticationFilter extends UserFilter {
 		Subject subject = SecurityUtils.getSubject();
 		//判断是否已登录
 		if(subject.isAuthenticated()) {
-			WebUtils.redirectToSavedRequest(request, response, "/login/forbidden");
+			WebUtils.redirectToSavedRequest(request, response, "/index");
 			
 	        return false;
 		}else {

@@ -9,6 +9,7 @@ import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -43,8 +44,8 @@ public class ShiroConfig {
      * @return DefaultWebSessionManager
      */
     @Bean
-    public CustomSessionManager sessionManager() {
-        CustomSessionManager sessionManager = new CustomSessionManager();
+    public DefaultWebSessionManager sessionManager() {
+        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         long timeout = 3600000*12;
         // 设置session超时时间，单位为毫秒
         sessionManager.setGlobalSessionTimeout(timeout);
@@ -90,12 +91,20 @@ public class ShiroConfig {
         map.put("/login/login", "anon");
         map.put("/login/forbidden", "anon");
         map.put("/config/get", "anon");
+        map.put("/szg/login","anon");
+        map.put("/index","anon");
+        map.put("/static/**","anon");
+        map.put("/css/**","anon");
+        map.put("/js/**","anon");
+        map.put("/imgs/**","anon");
+        map.put("/font/**","anon");
+
         //错误页面，认证不通过跳转
-        shiroFilterFactoryBean.setUnauthorizedUrl("/login/forbidden");
+        shiroFilterFactoryBean.setUnauthorizedUrl("/index");
         //对所有用户认证
         map.put("/**", "authc");
         //登录
-        shiroFilterFactoryBean.setLoginUrl("/login/unauthc");
+        shiroFilterFactoryBean.setLoginUrl("/index");
         //首页
         //shiroFilterFactoryBean.setSuccessUrl("/index");
 

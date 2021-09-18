@@ -3,7 +3,7 @@ package com.jky.verify.modules.login.controller;
 
 import com.jky.verify.modules.common.controller.BaseController;
 import com.jky.verify.modules.login.bean.LoginUser;
-import com.jky.verify.modules.user.service.IUserService;
+import com.jky.verify.modules.user.service.IUserInfoService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController extends BaseController {
 
     @Autowired
-    private IUserService userService;
+    private IUserInfoService userService;
 
     @GetMapping("unauthc")
     public Object unauth(){

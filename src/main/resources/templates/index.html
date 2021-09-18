@@ -3,9 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    <link rel="stylesheet" th:href="@{/static/css/layui.css}"/>
+    <script language="JavaScript" th:src="@{/static/js/layui.js}"></script>
 </head>
 <body>
-<h1>欢迎来到security</h1>
+<div class="layui-tab layui-tab-brief" lay-filter="menu">
+    <ul class="layui-tab-title">
+        <li class="layui-this">网站设置</li>
+        <li>用户管理</li>
+        <li>权限分配</li>
+        <li>商品管理</li>
+        <li>订单管理</li>
+    </ul>
+    <div class="layui-tab-content" style="height: 100px;">
+        <div class="layui-tab-item layui-show">内容不一样是要有，因为你可以监听tab事件（阅读下文档就是了）</div>
+        <div class="layui-tab-item">
 
+        </div>
+        <div class="layui-tab-item">
+            内容3
+        </div>
+        <div class="layui-tab-item">内容4</div>
+        <div class="layui-tab-item">内容5</div>
+    </div>
+</div>
+<ul class="layui-nav">
+    <li class="layui-nav-item">
+        <a href="javascript:;">核放出区</a>
+        <dl class="layui-nav-child">
+            <dd><a th:href="@{/initOut}">包裹出区</a></dd>
+            <dd><a href="">借货出区</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item">
+        <a href="javascript:;">核放入区</a>
+        <dl class="layui-nav-child">
+            <dd><a href="">采购入区</a></dd>
+            <dd class="layui-this"><a href="">退货入区</a></dd>
+            <dd><a href="">还货入区</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item"><a href="">演示</a></li>
+</ul>
 </body>
+<script>
+    //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function() {
+        var element = layui.element;
+        element.on('tab(menu)', function(data){
+            console.log(this); //当前Tab标题所在的原始DOM元素
+            console.log(data)
+            console.log(data.index); //得到当前Tab的所在下标
+            console.log(data.elem); //得到当前的Tab大容器
+            if(data.index=1){
+                data.elem.context = '<iframe scr="/initOut"/>'
+            }
+        });
+    });
+</script>
 </html>

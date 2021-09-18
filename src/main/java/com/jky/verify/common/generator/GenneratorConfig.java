@@ -17,7 +17,7 @@ public class GenneratorConfig {
     /**
      * 数据库连接地址
      */
-    public static String dataUrl = "jdbc:mysql://localhost:3306/shiroboot?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&serverTimezone=Asia/Shanghai";
+    public static String dataUrl = "jdbc:mysql://localhost:3306/verify?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&serverTimezone=Asia/Shanghai";
     /**
      * 数据库用户名
      */
@@ -29,7 +29,7 @@ public class GenneratorConfig {
     /**
      * 生成代码目录的父目录
      */
-    public static String moudelParent = "com.wofang.shiroboot.modules";
+    public static String moudelParent = "com.jky.verify.modules";
     /**
      * 生成mybatis相关xml的根目录
      */

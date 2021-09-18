@@ -178,4 +178,8 @@ public class Constant {
      * 超级管理员的roleKey
      */
     public static String SUPER_ADMIN_ROLE_KEY = "superAdmin";
+    /**
+     * 松之光企业key
+     */
+    public static String SONG_ZHI_GUANG_KEY = "songzhiguang";
 }

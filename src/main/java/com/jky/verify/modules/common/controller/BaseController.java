@@ -2,6 +2,8 @@ package com.jky.verify.modules.common.controller;
 
 
 import com.jky.verify.common.util.ResponseModel;
+import com.jky.verify.modules.login.bean.LoginUser;
+import org.apache.shiro.SecurityUtils;
 
 /**
  * controller基类
@@ -38,5 +40,13 @@ public class BaseController {
 
     protected ResponseModel error(String code,String msg,Object data){
         return ResponseModel.error(code,msg,data);
+    }
+
+    /**
+     * 获取用户信息对象
+     * @return
+     */
+    protected LoginUser getUser() {
+        return (LoginUser) SecurityUtils.getSubject().getPrincipal();
     }
 }

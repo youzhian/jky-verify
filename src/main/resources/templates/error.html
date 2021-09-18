@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<style>
+    html,body{
+        height: 100%;
+    }
+    * html .content_tb {
+        height: 1%;
+    }
+    .content_bd{height:100%;text-align: center;min-height: 100%;display: table;width: 100%;}
+    .content_tb{padding-top:70px;padding-bottom: 90px;display: table-cell;text-align: center;vertical-align: middle;}
+    .content_tb:after{content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+    .content_bd img{border-radius: 50%;display: inline-block;}
+    .content_bd h4{font-size: 18px;color: #666;margin-top: 10px;}
+    .content_bd p{font-size: 16px;line-height:30px;color:#666;}
+    .content_bd a{display: inline-block;height: 30px;width:240px;line-height: 30px;margin-top: 30px;}
+</style>
+<body>
+<!--内容-->
+<div class="content_bd">
+    <div class="content_tb">
+        <img th:src="@{/static/imgs/img-error2.png}"/>
+        <h4>哎呀，出错了！</h4>
+        <p th:if="${errorMsg != null}" th:text="${errorMsg}"></p>
+        <p th:if="${errorMsg == null}" >请联系系统管理员</p>
+    </div>
+</div>
+</body>
+</html>
