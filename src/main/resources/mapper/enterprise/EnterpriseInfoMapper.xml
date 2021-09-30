@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jky.verify.modules.enterprise.mapper.EnterpriseInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jky.verify.modules.enterprise.bean.EnterpriseInfo">
+        <id column="id" property="id" />
+        <result column="enterprise_name" property="enterpriseName" />
+        <result column="enterprise_key" property="enterpriseKey" />
+        <result column="app_key" property="appKey" />
+        <result column="app_secret" property="appSecret" />
+        <result column="ep_desc" property="epDesc" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, enterprise_name, enterprise_key, app_key, app_secret, ep_desc
+    </sql>
+
+</mapper>
